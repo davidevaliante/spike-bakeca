@@ -220,7 +220,7 @@ export async function getServerSideProps({ query }) {
     const bonusResponses = await Promise.all([...auxiliaryRequests, mainBonusRequest])
     const relatedVideos = await Promise.all([...relatedVideosRequest])
 
-    const mainBonus = bonusResponses.find((r) => r.data.data.bonuses[0].legacyId === mainBonusId)?.data.data.bonuses[0]
+    const mainBonus = bonusResponses.find((r) => r.data.data.bonuses[0].legacyId === mainBonusId).data.data.bonuses[0]
     const auxiliaryBonuses = bonusResponses
         .filter((r) => r.data.data.bonuses[0].legacyId !== mainBonusId)
         .map((r) => r.data.data.bonuses[0])
