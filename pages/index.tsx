@@ -101,6 +101,9 @@ const index: FunctionComponent<any> = ({
                 </h1>
 
                 <h1 style={{ marginTop: '1rem' }}>Migliori casinò legali dove trovare questi giochi:</h1>
+                <p style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '12px' }}>
+                    *alcune offerte sono disponibili solo attraverso questa pagina e non dai siti ufficiali
+                </p>
 
                 {bonuses &&
                     bonuses.length > 2 &&
@@ -134,7 +137,7 @@ export async function getServerSideProps({ query }) {
 
     const firebaseDatabaseUrl = 'https://spike-2481d.firebaseio.com'
 
-    const slug = 'slot_online_torna_la_dead_or_alive_2_con_acquisti_di_bonus_pazzi_partita_di_novembre'
+    const slug = 'slot_online_missione_wildline_compiuta_alla_dead_or_alive_2_vincita_record'
 
     const streamer = await axios.get(`${configuration.api}/streamers/${configuration.streamerId}`)
     let videoId
