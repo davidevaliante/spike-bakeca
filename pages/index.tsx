@@ -137,7 +137,7 @@ export async function getServerSideProps({ query }) {
 
     const firebaseDatabaseUrl = 'https://spike-2481d.firebaseio.com'
 
-    const slug = 'slot_online_missione_wildline_compiuta_alla_dead_or_alive_2_vincita_record'
+    const slug = 'il_grande_ritorno_della_book_of_ra_6_a_bet_max_dicembre_di_fuoco_2021_spike_slot_online'
 
     const streamer = await axios.get(`${configuration.api}/streamers/${configuration.streamerId}`)
     let videoId

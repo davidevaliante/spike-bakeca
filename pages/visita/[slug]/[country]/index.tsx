@@ -65,7 +65,8 @@ query($compareCode:String="hello", $id : ID=1){
 export async function getServerSideProps({ query, res }) {
     const slug = query.slug as string
     const country = query.country as string
-
+    const fromInstagram = query.instagram as string
+    console.log(query)
     let redirect
 
     const aquaClient = new AquaClient()
@@ -89,15 +90,35 @@ export async function getServerSideProps({ query, res }) {
             (b) => b.label === `${slug} ${configuration.streamerName} row`
         )
 
-    if (slug === 'wincsn') link = 'https://www.wincasinopromo.it/?mp=20f65900-3c5c-4ac2-a5ee-17aac6ccf2be'
-    if (slug === '888') link = 'https://ic.aff-handler.com/c/43431?sr=1868494'
-    if (slug === 'leovgs') link = 'https://ads.leovegas.com/redirect.aspx?pid=3704891&bid=1496'
-    if (slug === 'netbt') link = 'https://banners.livepartners.com/view.php?z=139081&source=bakeca'
-    if (slug === 'starcsn') link = 'http://record.affiliatelounge.com/_SEA3QA6bJTMP_fzV1idzxmNd7ZgqdRLk/132/'
+    if (fromInstagram === 'true') {
+        if (link.label.includes('wincsn'))
+            link.link = 'https://www.wincasinopromo.it/?mp=2e7819f5-37ba-4a97-9b8f-c1b30f145196'
+        if (link.label.includes('starcsn'))
+            link.link = 'http://record.affiliatelounge.com/_SEA3QA6bJTMP_fzV1idzxmNd7ZgqdRLk/51/'
+        if (link.label.includes('starvgs')) link.link = 'https://www.starvegas.it/gmg/refer/5de540507e200c00012d5fad'
+        if (link.label.includes('eurobt'))
+            link.link = 'https://record.betpartners.it/_E_C7XwxgprAZV93hC2dJ_GNd7ZgqdRLk/6/'
+        if (link.label.includes('csncom'))
+            link.link = 'https://record.mansionaffiliates.com/_-ZJRcUjxY8Gtxzdkw94pNWNd7ZgqdRLk/6/'
+        if (link.label.includes('888')) link.link = 'https://ic.aff-handler.com/c/43431?sr=1862015'
+        if (link.label.includes('leovgs')) link.link = 'https://ads.leovegas.com/redirect.aspx?pid=3710704&bid=14965'
+        if (link.label.includes('snai')) link.link = 'https://affiliazioniads.snai.it/redirect.aspx?pid=30224&bid=2479'
+        if (link.label.includes('btflg')) link.link = 'https://adv.betflag.com/redirect.aspx?pid=5367&bid=2680'
+
+        if (link.label.includes('pkrstr'))
+            link.link =
+                'https://secure.starsaffiliateclub.com/C.ashx?btag=a_182454b_5683c_&affid=100976968&siteid=182454&adid=5683&c='
+        if (link.label.includes('gd'))
+            link.link = 'https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2036583'
+        if (link.label.includes('bwin'))
+            link.link = 'https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2036584'
+        if (link.label.includes('goldbt'))
+            link.link = 'https://media.goldbetpartners.it/redirect.aspx?pid=5397&bid=1495'
+    }
 
     return {
         props: {
-            redirect: link,
+            redirect: link.link,
         },
     }
 }
